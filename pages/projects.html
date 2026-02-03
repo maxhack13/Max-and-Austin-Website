@@ -4,114 +4,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to our personal website - Built by Max and Austin">
-    <title>Home | Max & Austin</title>
-    <link rel="stylesheet" href="../resources/style.css">
+    <meta name="description" content="Our Projects - Built by Max and Austin">
+    <title>Projects | Max & Austin</title>
+    <link rel="stylesheet" href="../resources/macbook-theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="homepage.html" class="nav-logo">
-                <span class="logo-gradient">Max & Austin</span>
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="homepage.html" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="homepage.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
-
-
-
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Work</span>
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="projects-vertical">
-                <a href="snowReport.html" class="project-card project-large">
-                    <img src="../resources/img/snowReport.png" alt="Snow Report" class="project-image">
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <span class="project-tag">Live</span>
-                        <h3>Snow Report</h3>
-                        <p>Check the latest snow conditions</p>
+    <!-- Desktop Area with MacBook Frame -->
+    <div class="desktop">
+        <div class="macbook-frame">
+            <div class="macbook-screen">
+                <!-- Screen Menu Bar -->
+                <div class="screen-menu-bar">
+                    <div class="screen-apple"></div>
+                    <div class="screen-menu-items">
+                        <span class="menu-item"><strong>Finder</strong></span>
+                        <span class="menu-item">File</span>
+                        <span class="menu-item">Edit</span>
+                        <span class="menu-item">View</span>
+                        <span class="menu-item">Go</span>
+                        <span class="menu-item">Window</span>
+                        <span class="menu-item">Help</span>
                     </div>
-                </a>
-                <a href="stocks.html" class="project-card">
-                    <img src="../resources/img/stocks.png" alt="Stocks" class="project-image">
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <span class="project-tag">Live</span>
-                        <h3>Stocks</h3>
-                        <p>Track market performance</p>
+                    <span class="screen-menu-time" id="menuTime"></span>
+                </div>
+
+                <!-- Desktop Content with App Icons -->
+                <div class="desktop-content">
+                    <div class="desktop-title">
+                        <h1>Our Projects</h1>
+                        <p>Click an app to explore</p>
                     </div>
-                </a>
+
+                    <div class="apps-grid">
+                        <a href="#" class="app-icon" data-app="snowReport" data-title="Snow Report"
+                            data-url="snowReport.html">
+                            <div class="app-icon-image app-snow">
+                                <span class="icon-emoji">❄️</span>
+                            </div>
+                            <span class="app-icon-label">Snow Report</span>
+                        </a>
+
+                        <a href="#" class="app-icon" data-app="stocks" data-title="Stocks" data-url="stocks.html">
+                            <div class="app-icon-image app-stocks">
+                                <span class="icon-emoji">📈</span>
+                            </div>
+                            <span class="app-icon-label">Stocks</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dock -->
+                <div class="dock-container">
+                    <div class="dock">
+                        <a href="homepage.html" class="dock-item" data-tooltip="Home">
+                            <div class="dock-icon"
+                                style="background: linear-gradient(145deg, #9B59B6 0%, #8E44AD 100%);">
+                                🏠
+                            </div>
+                        </a>
+                        <div class="dock-separator"></div>
+                        <a href="mailto:maxryanhack13@gmail.com" class="dock-item" data-tooltip="Mail">
+                            <div class="dock-icon"
+                                style="background: linear-gradient(145deg, #3498DB 0%, #2980B9 100%);">
+                                ✉️
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-      <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-gradient">M&A</span>
-                    <p>Built with passion by <strong>Max</strong> and <strong>Austin</strong></p>
+    </div>
+
+    <!-- App Window Modal -->
+    <div class="app-window-overlay" id="appOverlay">
+        <div class="app-window" id="appWindow">
+            <div class="app-window-titlebar">
+                <div class="app-window-controls">
+                    <button class="app-window-btn close" id="closeBtn" title="Close"></button>
+                    <button class="app-window-btn minimize" id="minimizeBtn" title="Minimize"></button>
+                    <button class="app-window-btn maximize" id="maximizeBtn" title="Maximize"></button>
                 </div>
-                <div class="footer-links">
-                    <a href="homepage.html">Home</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
+                <span class="app-window-title" id="windowTitle">App</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Max & Austin. All rights reserved.</p>
+            <div class="app-window-content" id="appContent">
+                <div class="app-window-loading">
+                    <div class="loading-spinner"></div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Update time in menu bar
+        function updateTime() {
+            const now = new Date();
+            const options = {
+                weekday: 'short',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            };
+            const timeStr = now.toLocaleString('en-US', options);
+            document.getElementById('menuTime').textContent = timeStr;
+        }
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+        updateTime();
+        setInterval(updateTime, 1000);
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+        // App Window System
+        const overlay = document.getElementById('appOverlay');
+        const appWindow = document.getElementById('appWindow');
+        const appContent = document.getElementById('appContent');
+        const windowTitle = document.getElementById('windowTitle');
+        const closeBtn = document.getElementById('closeBtn');
+        const minimizeBtn = document.getElementById('minimizeBtn');
+        const maximizeBtn = document.getElementById('maximizeBtn');
+
+        // Open app function
+        function openApp(appElement) {
+            const url = appElement.dataset.url;
+            const title = appElement.dataset.title;
+
+            if (!url) return;
+
+            // Add bounce animation to icon
+            appElement.classList.add('opening');
+            setTimeout(() => appElement.classList.remove('opening'), 400);
+
+            // Set window title
+            windowTitle.textContent = title;
+
+            // Show loading state
+            appContent.innerHTML = `
+                <div class="app-window-loading">
+                    <div class="loading-spinner"></div>
+                </div>
+            `;
+
+            // Show overlay
+            overlay.classList.add('active');
+
+            // Load content in iframe after brief delay
+            setTimeout(() => {
+                appContent.innerHTML = `<iframe src="${url}" title="${title}"></iframe>`;
+            }, 300);
+        }
+
+        // Close app function
+        function closeApp() {
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                appContent.innerHTML = '';
+            }, 300);
+        }
+
+        // Minimize app (with genie effect)
+        function minimizeApp() {
+            appWindow.classList.add('minimizing');
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                appWindow.classList.remove('minimizing');
+                appContent.innerHTML = '';
+            }, 500);
+        }
+
+        // Maximize (open in new tab for full view)
+        function maximizeApp() {
+            const iframe = appContent.querySelector('iframe');
+            if (iframe) {
+                window.open(iframe.src, '_blank');
+            }
+        }
+
+        // Event listeners for app icons
+        document.querySelectorAll('.app-icon[data-app], .dock-item[data-app]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Add dock bounce if it's a dock item
+                if (item.classList.contains('dock-item')) {
+                    item.classList.add('bouncing');
+                    setTimeout(() => item.classList.remove('bouncing'), 600);
+                }
+
+                openApp(item);
             });
         });
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Window control buttons
+        closeBtn.addEventListener('click', closeApp);
+        minimizeBtn.addEventListener('click', minimizeApp);
+        maximizeBtn.addEventListener('click', maximizeApp);
+
+        // Close on overlay click (outside window)
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeApp();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeApp();
             }
         });
     </script>
-    </body>
+</body>
 
 </html>
